@@ -17,9 +17,15 @@ function elzero_add_style()
 function elzero_add_script()
 {
     // false at the end to make JS scripts at the end of page before </head> 
-    wp_enqueue_script('jquery-js', get_template_directory_uri() . '/source/js/jquery.min.js', array(), false, true);
-    // maybe bootsrap bundle do all stuff. if so I will delete bootstrap.js
-    // wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/source/js/bootstrap.min.js', array(), false, true);
-    wp_enqueue_script('bootstrap-bundle-js', get_template_directory_uri() . '/source/js/bootstrap.bundle.min.js', array(), false, true); 
+    // NOTICE: jquesry is already in WordPress!
+    // wp_enqueue_script('jquery-js', get_template_directory_uri() . '/source/js/jquery.min.js', array(), false, true);
+    // wp_enqueue_script('jquery');  // make before bootsape 
+    // maybe bootsrap bundle do all stuff. if so I will delete bootstrap.js or just bootstrap is enough
+    wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/source/js/bootstrap.min.js', array('jquery'), false, true);
+    // wp_enqueue_script('bootstrap-bundle-js', get_template_directory_uri() . '/source/js/bootstrap.bundle.min.js', array('jquery'), false, true); 
     wp_enqueue_script('main-js', get_template_directory_uri() . '/source/js/main.js', array(), false, true);
 }
+
+
+add_action('wp_enqueue_scripts','elzero_add_style'); 
+add_action('wp_enqueue_scripts','elzero_add_script'); 
