@@ -1,15 +1,12 @@
-<?php 
 
-get_header(); 
-?> 
+<?php
 
-<h1>My header</h1>
+get_header();
+?>
 
-<?php 
-echo "my name is: " .bloginfo('name');
-get_search_form(); 
-
-get_sidebar(); 
+<h1>Elzero Test Content </h1>
 
 
-get_footer(); 
+<?php
+
+get_footer();
