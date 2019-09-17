@@ -11,6 +11,7 @@ function elzero_add_style()
     // if I use RTL bootstrab 
     // wp_enqueue_style('bootstrap-rtl-css', get_template_directory_uri() . '/source/css/bootstrap_rtl.min.css'); 
     wp_enqueue_style('fontawsome-css', get_template_directory_uri() . '/source/css/all.fonts.min.css');
+    wp_enqueue_style('main', get_template_directory_uri() . '/source/css/main.css');
 }
 
 function elzero_add_script()
@@ -30,6 +31,18 @@ function elzero_add_script()
     wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/source/js/bootstrap.min.js', array('jquery'), false, true);
     // wp_enqueue_script('bootstrap-bundle-js', get_template_directory_uri() . '/source/js/bootstrap.bundle.min.js', array('jquery'), false, true); 
     wp_enqueue_script('main-js', get_template_directory_uri() . '/source/js/main.js', array(), false, true);
+
+    // DECLAIMER: IN BOOTSTRAP4 THERE IS NO NEED FOR THESE JS FILES
+    // these TWO js files to make style good in OLD browsers 
+    wp_enqueue_script('html5shiv', get_template_directory_uri() . '/source/js/html5shiv.min.js'); // we need it in HEADER 
+    wp_script_add_data('html5shiv', 'conditional', 'lt IE 9'); // conditional comment for less than IE 9
+    
+    wp_enqueue_script('respond', get_template_directory_uri() . '/source/js/respond.min.js'); // we need it in HEADER 
+    wp_script_add_data('respond', 'conditional', 'lt IE 9'); // conditional comment for less than IE 9
+
+
+
+
 }
 
 
