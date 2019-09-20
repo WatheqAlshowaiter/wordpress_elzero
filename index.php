@@ -1,12 +1,37 @@
-<?php
+<?php get_header(); ?>
 
-get_header();
-?>
+
+<div class="container">
+    <div class="row">
+        <?php
+
+        if (have_posts()) {
+            while (have_posts()) {
+                the_post();
+                ?>
+                <div class="col-sm-6">
+                    <div class="main-post">
+                        <!--  thetitle(before, after) args: (before the title, after the title) -->
+                        <?php the_title("<h3 class='post-title'>", "</h3>");   ?>
+                    </div>
+                </div>
+        <?php
+            } // end while
+        } // end if
+        ?>
+    </div>
+</div>
+
+
+<!-- 
+    this is the post loop 
+ -->
+
 
 
 <!-- at first we do all that in in static way then dyamic -->
 
-<div class="container">
+<!-- <div class="container">
     <div class="row">
         <div class="col-sm-6">
             <div class="main-post">
@@ -58,7 +83,7 @@ get_header();
         </div>
 
     </div>
-</div>
+</div> -->
 
 <?php
 
