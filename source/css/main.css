@@ -54,9 +54,11 @@ body {
 	margin: 10px 0 10px;
 }
 
-.main-post .post-content {
+.main-post .post-content  {
 	line-height: 1.7;
 	color: #828282;
+	word-wrap: break-word;
 }
+
 
 /* End Posts */
