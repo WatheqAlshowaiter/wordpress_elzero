@@ -12,7 +12,18 @@
                 <div class="col-sm-6">
                     <div class="main-post">
                         <!--  thetitle(before, after) args: (before the title, after the title) -->
-                        <?php the_title("<h3 class='post-title'>", "</h3>");   ?>
+                        <!-- the_permalink(): give the link of the post  -->
+                        <!-- title: give tooltip to the post the_title_attribute() -->
+
+                        <h3>
+                            <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+                        </h3>
+                        <!--  the_author_posts_link(): the author page of all his posts -->
+                        <span class="post-author"><i class="fas fa-user"></i> <?php the_author_posts_link(); ?></span>
+                        <span class="post-date"> <i class="fas fa-calendar-alt"></i> <?php the_time('d, m, Y'); ?></span>
+                        <span class="post-comments"> <i class="fas fa-comments"></i> <?php comments_popup_link("No Comments","1 Comment", "% Comments", "comment-url", "Comments Off"); ?></span>
+                        <hr>
+                        <p class="categories"><i class="fas fa-tags"></i> <?php the_category( ', ' ); ?></p>
                     </div>
                 </div>
         <?php
@@ -26,6 +37,9 @@
 <!-- 
     this is the post loop 
  -->
+<!-- Display the Title as a link to the Post's permalink. -->
+
+
 
 
 
