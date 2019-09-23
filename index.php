@@ -27,8 +27,11 @@
                         <!-- post imsge thunmbnail -->
                         <!-- 1st arg is for sizes like 'thumbnals' 150x150 and other sizes in worpreess docs -->
                         <?php the_post_thumbnail("", ["class" => "img-fluid img-thumbnail", "alt" => "place holder image", "title" => "post image"]); ?>
+                   
                         <div class="post-content" id="post-content">
-                            <?php the_content('Continue.. '); ?>
+                            <?php // the_content('Continue.. '); ?>
+                            <?php  the_excerpt(); ?>
+                            <a href="<?php the_permalink(); ?>" rel="bookmark" title="Complete Reading <?php the_title_attribute(); ?>">Read More...</a>
                         </div>
                         <!-- <span class="post-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus possimus asperiores fuga dolorum. Rem laboriosam fuga eum et repudiandae similique, obcaecati aliquid harum enim ab voluptatum cupiditate consectetur perferendis qui.</span> -->
                         <hr>

@@ -6,7 +6,7 @@ require('class-wp-bootstrap-navwalker.php');
 */
 
 // add feature image support 
-add_theme_support('post-thumbnails'); 
+add_theme_support('post-thumbnails');
 
 
 function elzero_add_style()
@@ -78,6 +78,26 @@ function elzero_add_nav_menu()
     ));
 }
 
+/**
+ * modifying excerpts length 
+ * by @watheq
+ * @return int length we want for excerpts 
+ */
+function elzero_change_excerpts_lenght($length)
+{
+    return 20;
+}
+
+/**
+ * modifying excerpts length 
+ * by @watheq
+ * @return int length we want for excerpts 
+ */
+function elzero_change_excerpts_more()
+{
+    return '...';
+}
+
 
 
 /*
@@ -91,3 +111,15 @@ add_action('wp_enqueue_scripts', 'elzero_add_script');
 
 // adding actions to the navigation menu 
 add_action("init", "elzero_register_custom_menu");
+
+
+
+/**
+ * Add filters
+ * added by @watheq
+ */
+
+// change excerpt length
+add_filter('excerpt_length', 'elzero_change_excerpts_lenght');
+// change excerpt more eg. [...] to ''
+add_filter('excerpt_more', 'elzero_change_excerpts_more');
