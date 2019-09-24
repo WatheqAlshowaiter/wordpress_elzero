@@ -1,5 +1,6 @@
 body {
 	background-color: #EEE;
+	min-height: 1080px;
 }
 
 /* Start Footer */
@@ -43,6 +44,7 @@ body {
 	font-weight: bold;
 	color: #777;
 	letter-spacing: -1px;
+	word-wrap: break-word;
 }
 
 .main-post .post-author, .main-post .post-date, .main-post .post-comments {
@@ -54,11 +56,37 @@ body {
 	margin: 10px 0 10px;
 }
 
-.main-post .post-content  {
+.main-post .post-content {
 	line-height: 1.7;
 	color: #828282;
 	word-wrap: break-word;
 }
 
+.post-pagination {
+	margin: 10px 0 30px;
+	text-align: center;
+}
 
+.post-pagination a, .post-pagination span {
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: #FFF;
+	border-radius: 5px;
+}
+
+.post-pagination a:first-of-type {
+	margin-right: 10px;
+}
+
+.post-pagination span {
+	opacity: .5 ;
+	cursor: not-allowed;
+}
+
+.post-pagination .prev-span{
+	margin-right: 10px; 
+}
+.post-pagination .next-span{
+	margin-left: 10px; 
+}
 /* End Posts */
