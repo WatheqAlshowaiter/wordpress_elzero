@@ -2,15 +2,13 @@
 
 
 <div class="container">
-    <div class="row">
         <?php
 
         if (have_posts()) {
             while (have_posts()) {
                 the_post();
                 ?>
-                <div class="col-sm-6">
-                    <div class="main-post">
+                    <div class="main-post single-post">
                         <!--  thetitle(before, after) args: (before the title, after the title) -->
                         <!-- the_permalink(): give the link of the post  -->
                         <!-- title: give tooltip to the post the_title_attribute() -->
@@ -31,8 +29,7 @@
                         <div class="post-content" id="post-content">
                             <?php // the_content('Continue.. '); 
                                     ?>
-                            <?php the_excerpt(); ?>
-                            <a href="<?php the_permalink(); ?>" rel="bookmark" title="Complete Reading <?php the_title_attribute(); ?>">Read More...</a>
+                            <?php the_content(); ?>
                         </div>
                         <!-- <span class="post-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus possimus asperiores fuga dolorum. Rem laboriosam fuga eum et repudiandae similique, obcaecati aliquid harum enim ab voluptatum cupiditate consectetur perferendis qui.</span> -->
                         <hr>
@@ -47,12 +44,10 @@
                                     ?>
                         </p>
                     </div>
-                </div>
         <?php
             } // end while
         } // end if 
         ?>
-    </div> <!-- end .row --->
     <div class="clearfix"></div> <!-- clear fix for floating elements (Bootstrap Class)-->
     <div class="post-pagination">
         <?php

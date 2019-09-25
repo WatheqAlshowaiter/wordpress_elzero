@@ -26,7 +26,7 @@ body {
 
 /* End navbar */
 
-/* Start Posts */
+/* Start Main Post */
 
 .main-post {
 	padding: 20px;
@@ -72,21 +72,48 @@ body {
 	padding: 10px 20px;
 	background-color: #FFF;
 	border-radius: 5px;
+	/* transitions */
+	-webkit-transition: all .4s ease-in-out;
+	-moz-transition: all .4s ease-in-out;
+	-o-transition: all .4s ease-in-out;
+	transition: all .4s ease-in-out;
 }
 
-.post-pagination a:first-of-type {
-	margin-right: 10px;
+.post-pagination a:first-child, .post-pagination span:first-child {
+	float: left;
+	/* margin-left: 15px; */
+}
+
+.post-pagination a:last-child, .post-pagination span:last-child {
+	float: right;
+	/* margin-right: 15px; */
 }
 
 .post-pagination span {
-	opacity: .5 ;
+	opacity: .5;
 	cursor: not-allowed;
 }
 
-.post-pagination .prev-span{
-	margin-right: 10px; 
+.post-pagination .fa-cheveron-right {
+	margin-right: 10px;
 }
-.post-pagination .next-span{
-	margin-left: 10px; 
+
+.post-pagination .fa-cheveron-left {
+	margin-left: 10px;
 }
-/* End Posts */
+
+.post-pagination a:hover {
+	background-color: #333;
+	color: #FFF;
+	text-decoration: none;
+}
+
+/* End Main Post */
+
+/* Start Single post */
+
+.single-post .post-content {
+
+}
+
+/* Start Single post */
