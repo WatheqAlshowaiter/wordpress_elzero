@@ -1,6 +1,6 @@
 body {
 	background-color: #EEE;
-	min-height: 1080px;
+	min-height: 1280px;
 }
 
 /* Start Footer */
@@ -9,7 +9,8 @@ body {
 	background-color: #333;
 	color: #EEE;
 	padding: 20px;
-	position: fixed;
+	position: sticky;
+	/*I will change it later to fixed	 */
 	bottom: 0;
 	left: 0;
 	width: 100%;
@@ -26,20 +27,20 @@ body {
 
 /* End navbar */
 
-/* Start Main Post */
+/* Start Home Page */
 
-.main-post {
+.home-page .main-post {
 	padding: 20px;
 	background-color: #FFF;
 	border: 1px solid #d8d8d8;
 	margin-bottom: 30px;
 }
 
-.main-post i {
+.home-page .main-post i {
 	color: #999;
 }
 
-.main-post h3 {
+.home-page.main-post h3 {
 	margin: 0 0 10px;
 	font-weight: bold;
 	color: #777;
@@ -47,27 +48,27 @@ body {
 	word-wrap: break-word;
 }
 
-.main-post .post-author, .main-post .post-date, .main-post .post-comments {
+.home-page.main-post .post-author, .home-page .main-post .post-date, .home-page .main-post .post-comments {
 	font-size: 12px;
 }
 
-.main-post img {
+.home-page .main-post img {
 	display: block;
 	margin: 10px 0 10px;
 }
 
-.main-post .post-content {
+.home-page .main-post .post-content {
 	line-height: 1.7;
 	color: #828282;
 	word-wrap: break-word;
 }
 
-.post-pagination {
-	margin: 10px 0 30px;
+.home-page .post-pagination {
+	margin: 10px 0 100px;
 	text-align: center;
 }
 
-.post-pagination a, .post-pagination span {
+.home-page .post-pagination a, .home-page .post-pagination span {
 	display: inline-block;
 	padding: 10px 20px;
 	background-color: #FFF;
@@ -79,41 +80,231 @@ body {
 	transition: all .4s ease-in-out;
 }
 
-.post-pagination a:first-child, .post-pagination span:first-child {
+.home-page .post-pagination a:first-child, .home-page .post-pagination span:first-child {
 	float: left;
 	/* margin-left: 15px; */
 }
 
-.post-pagination a:last-child, .post-pagination span:last-child {
+.home-page .post-pagination a:last-child, .home-page .post-pagination span:last-child {
 	float: right;
 	/* margin-right: 15px; */
 }
 
-.post-pagination span {
+.home-page .post-pagination span {
 	opacity: .5;
 	cursor: not-allowed;
 }
 
-.post-pagination .fa-cheveron-right {
+.home-page .post-pagination .fa-cheveron-right {
 	margin-right: 10px;
 }
 
-.post-pagination .fa-cheveron-left {
+.home-page .post-pagination .fa-cheveron-left {
 	margin-left: 10px;
 }
 
-.post-pagination a:hover {
+.home-page .post-pagination a:hover {
 	background-color: #333;
 	color: #FFF;
 	text-decoration: none;
 }
 
-/* End Main Post */
+/* End Home Page */
 
 /* Start Single post */
 
-.single-post .post-content {
+/* edit link  styling  */
 
+.post-page .main-post .post-edit-link {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 10px;
+	background-color: #EEE;
+	border-radius: 0 0 0 10px;
+}
+
+.post-page .main-post .post-edit-link i {
+	color: #337ab7;
+	margin-left: 5px;
 }
 
 /* Start Single post */
+
+.post-page .main-post {
+	position: relative;
+	padding: 20px;
+	background-color: #FFF;
+	border: 1px solid #d8d8d8;
+	margin-bottom: 30px;
+}
+
+.post-page .main-post i {
+	color: #999;
+}
+
+.post-page .main-post h3 {
+	margin: 0 0 10px;
+	font-weight: bold;
+	color: #777;
+	letter-spacing: -1px;
+	word-wrap: break-word;
+}
+
+.post-page .main-post .post-author, .post-page .main-post .post-date, .post-page .main-post .post-comments {
+	font-size: 12px;
+}
+
+.post-page .main-post img {
+	display: block;
+	margin: 10px 0 10px;
+}
+
+.post-page .main-post .post-content {
+	line-height: 1.7;
+	color: #828282;
+	word-wrap: break-word;
+}
+
+.post-page .post-pagination {
+	margin: 10px 0 100px;
+	text-align: center;
+}
+
+.post-page .post-pagination a, .post-page .post-pagination span {
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: #FFF;
+	border-radius: 5px;
+	/* transitions */
+	-webkit-transition: all .4s ease-in-out;
+	-moz-transition: all .4s ease-in-out;
+	-o-transition: all .4s ease-in-out;
+	transition: all .4s ease-in-out;
+}
+
+.post-page .post-pagination a:first-child, .post-page .post-pagination span:first-child {
+	float: left;
+	/* margin-left: 15px; */
+}
+
+.post-page .post-pagination a:last-child, .post-page .post-pagination span:last-child {
+	float: right;
+	/* margin-right: 15px; */
+}
+
+.post-page .post-pagination span {
+	opacity: .5;
+	cursor: not-allowed;
+}
+
+.post-page .post-pagination .fa-cheveron-right {
+	margin-right: 10px;
+}
+
+.post-page .post-pagination .fa-cheveron-left {
+	margin-left: 10px;
+}
+
+.post-page .post-pagination a:hover {
+	background-color: #333;
+	color: #FFF;
+	text-decoration: none;
+}
+
+/* End Single post */
+
+/* Start Comments  */
+
+.comments-list {
+	/* margin: 5% 10%; */
+}
+
+.comments-list ul, .comments-list ol {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.comments-count {
+	background-color: #DDD;
+	font-weight: bold;
+	padding: 15px;
+	color: #848484;
+	border: 1px solid #9a8e8e;
+	font-size: 24px;
+	margin-top: 0;
+}
+
+.comments-list .comment .says {
+	display: none;
+}
+
+.comments-list .comment .comment-meta {
+	font-size: 12px;
+}
+
+.comments-list .comment .img {
+	padding: 3px;
+	border: 1px solid #CCC;
+	background-color: #FFF;
+	margin-bottom: 5px;
+	margin-right: 5px;
+}
+
+.comments-list .comment p {
+	margin-top: 8px;
+	color: #6f6f6f;
+}
+
+/* Level 1 */
+
+.comments-list>.comment {
+	padding: 10px;
+	background-color: #FFF;
+	border: 1px solid #DDD;
+	margin-bottom: 5px;
+}
+
+/* Level 2 */
+
+.comments-list>.comment>.children>.comment {
+	padding: 10px;
+	background-color: #EEE;
+	border: 1px solid #CCC;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+/* Level 3 */
+
+.comments-list>.comment>.children>.comment .comment {
+	padding: 10px;
+	background-color: #AAA;
+	border: 1px solid #DDD;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+/* Comment Form */
+
+.comment-respond label {
+	/* to be in one line  */
+	display: block;
+}
+
+.comment-respond input[type="text"], .comment-respond textarea {
+	height: 40px;
+	width: 500px;
+	padding: 10px;
+	border: 1px solid #CCC;
+	border-radius: 5px;
+}
+
+.comment-respond textarea {
+	height: 200px;
+	/* to make textarea can't be resized  */
+	resize: none;
+}
+
+/* End Comments  */

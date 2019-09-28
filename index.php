@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 
-<div class="container">
+<div class="container home-page">
     <div class="row">
         <?php
 
@@ -58,15 +58,15 @@
         <?php
         // make some text to know it is prevous/next pages 
         if (get_previous_posts_link()) {
-            previous_posts_link('<i class="fas fa-chevron-left" area-hidden="true"></i> Prev');
+            previous_posts_link('<i class="fas fa-chevron-left" area-hidden="true"></i> New');
         } else {
-            echo "<span class='prev-span'>Prev</span>";
+            echo "<span class='prev-span'>New</span>";
         }
 
         if (get_next_posts_link()) {
-            next_posts_link('Next <i class="fas fa-chevron-right" area-hidden="true"></i>');
+            next_posts_link('Old <i class="fas fa-chevron-right" area-hidden="true"></i>');
         } else {
-            echo "<span class='next-span'>Next</span>";
+            echo "<span class='next-span'>Old</span>";
         }
         ?>
     </div>
