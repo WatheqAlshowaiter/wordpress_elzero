@@ -71,7 +71,7 @@
         ?>
     </div>
 
-    <div class="row">
+    <div class="row comment-section">
         <div class="col">
             <hr class="comment-separator">
 

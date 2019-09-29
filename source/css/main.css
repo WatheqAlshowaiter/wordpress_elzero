@@ -288,6 +288,38 @@ body {
 
 /* Comment Form */
 
+.comment-section {
+	/* 
+    	to make commets and its form wide 
+		when screen get small 
+	*/
+	display: grid;
+}
+
+.comment-respond .comment-reply-title {
+	font-weight: bold;
+	color: #9a9a9a;
+	text-align: center;
+	background-color: #E3E3E3;
+	padding: 15px;
+	margin-bottom: 15px; 
+}
+
+.comment-respond .comment-reply-title ~ form {
+	background-color: #E3E3E3;
+	padding: 15px;
+}
+
+.comment-respond .logged-in-as{
+ margin-left: 8px 5px 10px; 
+}
+
+.comment-respond label {
+	display: block;
+	color: #888;
+	margin: 0 0 10px 6px;
+}
+
 .comment-respond label {
 	/* to be in one line  */
 	display: block;
@@ -299,12 +331,18 @@ body {
 	padding: 10px;
 	border: 1px solid #CCC;
 	border-radius: 5px;
+	/* addd  */
+	max-width: 100%;
 }
 
 .comment-respond textarea {
 	height: 200px;
 	/* to make textarea can't be resized  */
 	resize: none;
+}
+
+.comment-respond input[type="submit"] {
+	margin-top: 6px;
 }
 
 /* End Comments  */
