@@ -22,7 +22,6 @@
 
 
                 <!--  the_author_posts_link(): the author page of all his posts -->
-                <span class="post-author"><i class="fas fa-user"></i> <?php the_author_posts_link(); ?> </span>
                 <span class="post-date"> <i class="fas fa-calendar-alt"></i> <?php the_time('d, m, Y'); ?></span>
                 <span class="post-comments"> <i class="fas fa-comments"></i> <?php comments_popup_link("No Comments", "1 Comment", "% Comments", "comment-url", "Comments Off"); ?></span>
                 <!-- To not mix comment count with contnt if there is no feautered image-->
@@ -54,6 +53,53 @@
     } // end if 
     ?>
     <div class="clearfix"></div> <!-- clear fix for floating elements (Bootstrap Class)-->
+    <hr class="comment-separator">
+
+
+    <!-- Post User Meta information-->
+
+    <div class="row author-meta">
+        <div class="col-md-2">
+            <?php
+            $avatar_img_args = array(
+                'class' => "img-thumbnail mx-auto d-block"
+            );
+
+            ?>
+            <?php echo get_avatar(get_the_author_meta('id'), "128", '', "User Picture", $avatar_img_args);  ?>
+        </div>
+        <div class="col-md-10 author-info">
+            <h4>
+                <?php the_author_meta('first_name'); ?>
+                <?php the_author_meta('last_name'); ?>
+                (<span class="nickname"><?php the_author_meta('nickname'); ?></span>)
+            </h4>
+
+            <?php if (get_the_author_meta('description')) : ?>
+                <p> <?php the_author_meta('description');  ?></p>
+
+            <?php else : echo "there is no bio." ?>
+
+            <?php endif; ?>
+        </div>
+        <hr>
+        <div class="col-md-3 author-info-links"> 
+            <p class="author-stats">
+                <i class="fas fa-tags"></i>
+                Posts Created By This User: <span class="post-count"> <?php echo count_user_posts(get_the_author_meta('id')); ?></span>
+            </p>
+            <p>
+                <i class="fas fa-user"></i>
+                User Profile Page: <span> <?php the_author_posts_link(); ?></span>
+            </p>
+        </div>
+
+
+
+    </div> <!-- end row  -->
+
+
+
     <div class="post-pagination">
         <?php
         // make some text to know it is prevous/next pages 
