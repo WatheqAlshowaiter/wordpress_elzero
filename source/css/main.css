@@ -385,3 +385,53 @@ body {
 }
 
 /* End Comments  */
+
+/* Start Author Page  */
+
+.author-page .author-main-info {
+	font-size: 18px;
+}
+
+.author-page .author-meta {
+	background: #FFF;
+	padding: 10px;
+	margin: 0;
+	margin-bottom: 20px;
+	border: 1px solid #dedede;
+}
+
+.author-page .author-main-info .profile-header {
+	font-size: 60px;
+	margin: 30px 0;
+	color: #666;
+	font-weight: bold;
+	letter-spacing: -3px;
+}
+
+.author-page .author-meta .author-names span{
+	color: #807d7d; 
+}
+.author-page .author-meta .author-names .nickname{
+color: black; 	
+}
+
+.author-page .author-main-info p {
+	color: #777;
+	line-height: 1.7;
+	letter-spacing: 1px;
+}
+
+.author-page .author-stats .stats {
+	background: #FFF;
+	padding: 20px;
+	margin: 0;
+	margin-bottom: 20px;
+	border: 1px solid #dedede;
+	text-align: center;
+	font-size: 14px;
+}
+.author-page .author-stats .stats span {
+	display: block; font-size: 50px; margin-top: 10px; 
+}
+
+/* End Author Page  */
