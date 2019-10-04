@@ -408,11 +408,12 @@ body {
 	letter-spacing: -3px;
 }
 
-.author-page .author-meta .author-names span{
-	color: #807d7d; 
+.author-page .author-meta .author-names span {
+	color: #807d7d;
 }
-.author-page .author-meta .author-names .nickname{
-color: black; 	
+
+.author-page .author-meta .author-names .nickname {
+	color: black;
 }
 
 .author-page .author-main-info p {
@@ -430,8 +431,87 @@ color: black;
 	text-align: center;
 	font-size: 14px;
 }
+
 .author-page .author-stats .stats span {
-	display: block; font-size: 50px; margin-top: 10px; 
+	display: block;
+	font-size: 50px;
+	margin-top: 10px;
 }
+
+/* author posts */
+
+.author-page .author-all-posts .all-posts-header-section {
+	margin-bottom: 10px
+}
+
+.author-page .author-all-posts .all-posts-header {
+	background: #DDD;
+	padding: 10px;
+}
+
+.author-page .author-all-posts .auhtor-posts {
+	background-color: #FFF;
+	margin-left: 14px;
+	margin-right: 14px;
+	margin-bottom: 20px;
+	padding: 10px;
+	width: 100%;
+	border: 1px solid #ddd;
+}
+
+.author-page .author-all-posts .auhtor-posts .text-section {
+	margin-top: 10px;
+	padding: 10px;
+}
+
+.author-page .author-all-posts .auhtor-posts .text-section {
+	font-size: 13px;
+}
+
+.author-page .author-all-posts .auhtor-posts .text-section .post-content {
+	font-size: 15px;
+	color: #807878;
+}
+
+.author-page .author-all-posts .auhtor-posts .text-section .header-title {
+	font-size: 20px;
+}
+
+/* Start listing comments of author  */
+
+.author-page .author-comments .comments-header-section {
+	margin-bottom: 10px
+}
+
+.author-page .author-comments .comments-header-section .comments-header {
+	background: #DDD;
+	padding: 10px;
+}
+
+.author-page .author-comments .comments-listing {
+	width: 100%;
+	background: #FFF;
+	padding: 5px;
+	margin-left: 12px;
+	margin-right: 12px;
+	border: 1px solid #dddddd;
+	margin-bottom: 10px;
+}
+
+.author-page .author-comments .comments-listing .comment-title {
+	font-size: 24px;
+}
+
+.author-page .author-comments .comments-listing .comment-date {
+	font-size: 12px;
+	color: gray;
+}
+
+.author-page .author-comments .comments-listing .comment-content {
+	color: #444343;
+	font-size: 20px;
+}
+
+/* Start listing comments of author  */
 
 /* End Author Page  */

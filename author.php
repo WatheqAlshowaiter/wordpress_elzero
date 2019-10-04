@@ -66,50 +66,111 @@
             </div>
         </div>
     </div> <!-- end row -->
-    <div class="row">
+    <div class="row author-all-posts">
         <?php
 
-        if (have_posts()) { ?> 
-            <div class="col-12 text-center">
-            <h3><?php the_author_meta('nickname')?> posts </h3>
+        // WP Query of posts from this author 
+        $author_posts_per_page = 10; // to change it smoothly when we want 
+        $author_all_post = count_user_posts(get_the_author_meta('id'));
+        $author_posts_args = array(
+            'author' => get_the_author_meta('id'),
+            'posts_per_page' =>  $author_posts_per_page // -1 return all posts 
+        );
+        $author_post = new WP_Query($author_posts_args);
 
+        if ($author_post->have_posts()) { ?>
+            <div class="col-12 text-center all-posts-header-section">
+                <h3 class="all-posts-header"><?php the_author_meta('nickname') ?> latest [ <?php echo $author_posts_per_page <= $author_all_post ? $author_posts_per_page : $author_all_post; ?> ] posts </h3>
             </div>
-        <?php 
-            while (have_posts()) {  
-                
-                the_post();
-                ?>
-                <div class="col-sm-3">
-                    <?php the_post_thumbnail("", ["class" => "img-fluid img-thumbnail", "alt" => "place holder image", "title" => "post image"]); ?>
-                </div><!-- end col -->
-                <div class="col-sm-9">
-                    <!--  thetitle(before, after) args: (before the title, after the title) -->
-                    <!-- the_permalink(): give the link of the post  -->
-                    <!-- title: give tooltip to the post the_title_attribute() -->
 
-                    <h3>
-                        <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
-                    </h3>
-                    <!--  the_author_posts_link(): the author page of all his posts -->
-                    <span class="post-date"> <i class="fas fa-calendar-alt"></i> <?php the_time('d, m, Y'); ?></span>
-                    <span class="post-comments"> <i class="fas fa-comments"></i> <?php comments_popup_link("No Comments", "1 Comment", "% Comments", "comment-url", "Comments Off"); ?></span>
-                    <!-- To not mix comment count with contnt if there is no feautered image-->
-                    <br>
-                    <!-- post imsge thunmbnail -->
-                    <!-- 1st arg is for sizes like 'thumbnals' 150x150 and other sizes in worpreess docs -->
+            <?php
 
-                    <div class="post-content" id="post-content">
-                        <?php the_excerpt(); ?>
+                while ($author_post->have_posts()) {
+                    ?>
+                <div class="row auhtor-posts">
+                    <? $author_post->the_post(); ?>
+
+                    <div class="col-sm-3 image-section">
+                        <?php the_post_thumbnail("", ["class" => "img-fluid img-thumbnail", "alt" => "place holder image", "title" => "post image"]); ?>
+                    </div><!-- end col -->
+                    <div class="col-sm-9 text-section">
+                        <h3 class="header-title">
+                            <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+                        </h3>
+                        <!--  the_author_posts_link(): the author page of all his posts -->
+                        <span class="post-date"> <i class="fas fa-calendar-alt"></i> <?php the_time('d, m, Y'); ?></span>
+                        <span class="post-comments"> <i class="fas fa-comments"></i> <?php comments_popup_link("No Comments", "1 Comment", "% Comments", "comment-url", "Comments Off"); ?></span>
+                        <!-- To not mix comment count with contnt if there is no feautered image-->
+                        <br>
+                        <!-- post imsge thunmbnail -->
+                        <!-- 1st arg is for sizes like 'thumbnals' 150x150 and other sizes in worpreess docs -->
+
+                        <div class="post-content" id="post-content">
+                            <?php the_excerpt(); ?>
+                        </div>
+                        <!-- <span class="post-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus possimus asperiores fuga dolorum. Rem laboriosam fuga eum et repudiandae similique, obcaecati aliquid harum enim ab voluptatum cupiditate consectetur perferendis qui.</span> -->
                     </div>
-                    <!-- <span class="post-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus possimus asperiores fuga dolorum. Rem laboriosam fuga eum et repudiandae similique, obcaecati aliquid harum enim ab voluptatum cupiditate consectetur perferendis qui.</span> -->
-                </div>
-               
+                </div> <!-- ./auhtor-posts -->
         <?php
             } // end while
         } // end if 
+
         ?>
-    </div> <!-- end .row --->
-</div> <!-- End Countainer-->
+        <!-- for safety  -->
+        <?php wp_reset_postdata(); ?>
+    </div> <!--  ./col-12 text-center all-posts-div --->
+
+    <div class="row author-comments">
+        <?php
+        $author_comments_per_page = 4; // to change it smoothly when we want 
+        $author_all_comments = get_comments($comments_args);
+        $author_comments_args = array(
+            'user_id' => get_the_author_meta('id'),
+            'status' => 'approve',
+            'post_status' => 'publish', // not published with (ed)
+            // 'number' => $author_comments_per_page,
+            'post_type' => 'post'
+        );
+
+        $author_comments = get_comments($author_comments_args);
+
+        if ($author_comments) : ?>
+            <div class="col-12 text-center comments-header-section">
+                <h3 class="comments-header"><?php the_author_meta('nickname') ?> latest [ <?php echo $author_comments_per_page <= $author_all_comments ? $author_comments_per_page : $author_all_comments; ?> ] comments </h3>
+            </div>
+
+            <?php
+                foreach ($author_comments as $comment) :  ?>
+                <div class="row comments-listing">
+
+                    <div class="comment-title col-12">
+                        <a href="<?php echo get_permalink($comment->comment_post_ID); ?>">
+                            <?php echo get_the_title($comment->comment_post_ID); ?>
+                        </a>
+                    </div>
+
+                    <div class="comment-date col-12">
+                        <i class="fas fa-calendar-alt"></i> <?php echo "Added on ".  mysql2date("d/m/Y", $comment->comment_date); ?>
+                    </div>
+
+                    <div class="comment-content col-12">
+                        <?php echo $comment->comment_content; ?>
+                    </div>
+
+
+                </div> <!-- ./comments-listing -->
+            <?php endforeach; ?>
+        <?php else :
+            echo "There is no commment belong to this user";
+        endif;   ?>
+
+
+
+    </div> <!-- ./author-comments -->
+
+
+
+</div> <!-- ./container-->
 
 
 <?php get_footer(); ?>

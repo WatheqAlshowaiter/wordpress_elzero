@@ -85,7 +85,12 @@ function elzero_add_nav_menu()
  */
 function elzero_change_excerpts_lenght($length)
 {
-    return 20;
+    if(is_author()){
+        return 10;
+    }else {
+        return 20;
+    }
+    
 }
 
 /**
