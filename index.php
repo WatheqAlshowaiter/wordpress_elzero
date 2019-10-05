@@ -54,6 +54,7 @@
         ?>
     </div> <!-- end .row --->
     <div class="clearfix"></div> <!-- clear fix for floating elements (Bootstrap Class)-->
+   
     <div class="post-pagination">
         <?php
         // make some text to know it is prevous/next pages 
@@ -70,6 +71,10 @@
         }
         ?>
     </div>
+
+    <div class="number-pagination">
+        <p><?php  echo elzero_numbering_pagination(); ?></p>
+    </div> <!-- ./number-pagination --> 
 </div>
 <!--  
     this is the post loop 

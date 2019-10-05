@@ -85,13 +85,35 @@ function elzero_add_nav_menu()
  */
 function elzero_change_excerpts_lenght($length)
 {
-    if(is_author()){
+    if (is_author()) {
         return 10;
-    }else {
+    } else {
         return 20;
     }
-    
 }
+
+/**
+ * numbering pagination function 
+ * by @watheq 
+ */
+function elzero_numbering_pagination()
+{
+    global $wp_query; // instance from WP_Query Class 
+
+    $all_pages = $wp_query->max_num_pages;
+    $current_page = max(1, get_query_var('paged'));
+
+    if ($all_pages > 1) {
+        return paginate_links(array(
+            'base' => get_pagenum_link() . '%_%',
+            'format' => 'page/%#%', // I deleted nut nothing happened
+            'current' => $current_page,
+            'mid_size' => 1,
+            'end_size' => 1
+        ));
+    }
+}
+
 
 /**
  * modifying excerpts length 

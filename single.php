@@ -52,6 +52,51 @@
         } // end while
     } // end if 
     ?>
+
+    <div class="similer-posts-container">
+
+        <?php
+        $this_post_id =  get_the_ID(); // we can use $glabal $post OR get_queried_object_id()
+        $this_category = the_category_ID(false);   // we can use wp_get_post_categories($the_post_id); 
+        $similer_posts_num = 3;
+        $similer_posts_args = array(
+            'posts_per_page' => $similer_posts_num,  //number of posts
+            'cat' =>   $this_category, // category id 
+            'post_status' => 'publish',  // need to be published 
+            'orderby' => 'rand',  // give random posts 
+            'post__not_in' =>  array($this_post_id)  // HAVE TO BE AN ARRAY 
+        );
+
+        // The Query
+        $the_query = new WP_Query($similer_posts_args);
+
+        // The Loop
+        if ($the_query->have_posts()) : ?>
+            <h4 class="similer-posts-header"> Nice Articles may interest you!</h4>
+            <?php
+                echo '<ul class="similer-posts">';
+                while ($the_query->have_posts()) :
+                    $the_query->the_post(); ?>
+                <li class="">
+                    <a class="similer-post" href="<?php permalink_link() ?>">
+                        <?php echo get_the_title() ?>
+                    </a>
+                </li>
+
+            <?php endwhile; ?>
+            </ul>
+        <?php
+        else :
+            echo "<h4 class='no-similer-posts'>no similer posts found!<h4>";
+        endif;
+        /* Restore original Post Data */
+        wp_reset_postdata();
+        ?>
+
+
+    </div><!-- ./simler_posts -->
+
+
     <div class="clearfix"></div> <!-- clear fix for floating elements (Bootstrap Class)-->
     <hr class="comment-separator">
 
@@ -83,7 +128,7 @@
             <?php endif; ?>
         </div>
         <hr>
-        <div class="col-md-3 author-info-links"> 
+        <div class="col-md-3 author-info-links">
             <p class="author-stats">
                 <i class="fas fa-tags"></i>
                 Posts Created By This User: <span class="post-count"> <?php echo count_user_posts(get_the_author_meta('id')); ?></span>

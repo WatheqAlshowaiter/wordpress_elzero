@@ -212,6 +212,42 @@ body {
 	text-decoration: none;
 }
 
+/* Start  Pagination number  */
+
+.home-page .number-pagination {
+	margin: 5px auto 25px;
+	font-family: Tahoma, Arial;
+	font-size: 16px;
+}
+
+/* page-numbers is default from wordperss  */
+
+.home-page .number-pagination .page-numbers {
+	display: inline-block;
+	background-color: #8e8e8e;
+	color: #FFF;
+	padding: 5px 10px;
+	border-radius: 5px;
+	font-weight: bold;
+	/* make transition go well with diiferent browsers */
+	-webkit-transition: all .3s ease-in-out;
+	-moz-transition: all .3s ease-in-out;
+	-o-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
+}
+
+/* current page and hover page has same color  */
+
+.home-page .number-pagination .page-numbers.current {
+	background-color: #2980b9;
+}
+
+.home-page .number-pagination .page-numbers:hover {
+	background-color: #2980b9;
+}
+
+/* End Pagination number  */
+
 /* End Single post */
 
 /* Start Author Meta */
@@ -250,6 +286,32 @@ body {
 .author-info-links .post-count {
 	color: #05bf69;
 }
+
+/* Start Similer Posts  */
+
+.post-page .similer-posts-container .similer-posts-header, .post-page .similer-posts-container .no-similer-posts {
+	text-align: center;
+	padding: 10px;
+	background: #FFF;
+	border: solid 1px #DDD;
+	color: #777;
+}
+
+.post-page .similer-posts-container .no-similer-posts {
+	color: #E91E63;
+}
+
+.post-page .similer-posts-container .similer-posts {
+	list-style: none;
+	padding: 0;
+}
+
+.post-page .similer-posts-container .similer-posts .similer-post {
+	font-size: 20px;
+	padding: 10px;
+}
+
+/* End Similer Posts  */
 
 /* End Author Meta */
 
@@ -515,3 +577,28 @@ body {
 /* Start listing comments of author  */
 
 /* End Author Page  */
+
+/* Start 404 Page  */
+
+.not-found {
+	text-align: center;
+}
+
+.not-found img {
+	margin-top: 50px;
+	border: 1px solid #333333;
+}
+
+.not-found .lead {
+	margin-top: 20px;
+	font-size: 58px;
+	letter-spacing: -2px;
+}
+
+.not-found .paragraph {
+	font-size: 25px;
+	font-style: italic;
+	color: #888;
+}
+
+/* End 404 Page  */
