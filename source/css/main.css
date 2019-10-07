@@ -453,11 +453,9 @@ body {
 	background: #d4d2ec;
 }
 
-.post-page .bypostauthor .comment-author cite:after{
-	
-	content: ' [Author]'; 
-	font-weight: bold; 
-	
+.post-page .bypostauthor .comment-author cite:after {
+	content: ' [Author]';
+	font-weight: bold;
 }
 
 /* End Comment of author  */
@@ -618,3 +616,41 @@ body {
 }
 
 /* End 404 Page  */
+
+/* Start Category Page */
+
+.category-page .cat-info {
+	background: #FFF;
+	margin: 10px 0;
+	padding: 10px;
+	border: 1px solid #dedede;
+	color: #777;
+}
+
+.category-page .cat-info .cat-stats {
+	line-height: 3.2;
+}
+
+/* End Category Page */
+
+/* Start new-things special category syling */
+
+.new-things-cat .cat-info .cat-stats {
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.new-things-cat .main-post .post-text {
+
+	margin: 12px 0;
+}
+.new-things-cat .main-post .post-img img {
+	max-height: 250px ; 
+	max-width: 350px;
+}
+
+.new-things-cat .sidebar-cat {
+	background: #2980b9;
+}
+
+/* Emd new-things special category syling */

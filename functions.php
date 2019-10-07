@@ -87,6 +87,8 @@ function elzero_change_excerpts_lenght($length)
 {
     if (is_author()) {
         return 10;
+    } else if (is_category()) {
+        return 15;
     } else {
         return 20;
     }
