@@ -2,7 +2,6 @@
 
 <div class="container home-page category-page new-things-cat">
 
-    new things
     <!-- Category information section -->
     <div class="row cat-info">
         <div class="col-md">
@@ -81,7 +80,11 @@
             ?>
         </div>
         <div class="col-sm-3 sidebar-cat">
-            here the sidebar
+            <?php if (is_active_sidebar('main-sidebar')) {
+                // dynamic_sidebar('main-sidebar');
+                get_sidebar('new'); // the default wordpress sidebar  
+            }
+            ?>
         </div>
 
     </div> <!-- end .row --->

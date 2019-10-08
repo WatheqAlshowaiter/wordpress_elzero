@@ -128,6 +128,39 @@ function elzero_change_excerpts_more()
 }
 
 
+/**
+ * Registering Sidebar Widget 
+ * by @watheq
+ * 
+ */
+
+function elzero_main_sidebar()
+{
+
+    register_sidebar(array(
+        'name'          => 'Main Sidebar',
+        'id'            => 'main-sidebar',    // ID should be LOWERCASE  ! ! !
+        'description'   => 'this is main sidebar of elzero theme',
+        'class'         => 'main-sidebar',
+        'before_widget' => '<div class="widget-content"> ',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="widge-title">',
+        'after_title'   => '</h3>'
+    ));
+}
+
+/**
+ * Remove autho parapaphs that is defult in WP
+ * by @watheq
+ */
+function elzero_remove_auto_p($content)
+{
+
+    remove_filter('the_conent', 'wpautop', 0); // make priotary (the lower the most) 
+    return $content;
+}
+
+
 
 /*
     Add Actions 
@@ -141,6 +174,9 @@ add_action('wp_enqueue_scripts', 'elzero_add_script');
 // adding actions to the navigation menu 
 add_action("init", "elzero_register_custom_menu");
 
+// adding action for the main sidebar widget 
+add_action('widgets_init', 'elzero_main_sidebar');
+
 
 
 /**
@@ -152,3 +188,6 @@ add_action("init", "elzero_register_custom_menu");
 add_filter('excerpt_length', 'elzero_change_excerpts_lenght');
 // change excerpt more eg. [...] to ''
 add_filter('excerpt_more', 'elzero_change_excerpts_more');
+
+// change auto <p> 
+add_filter('the_content', 'elzero_remove_auto_p'); 

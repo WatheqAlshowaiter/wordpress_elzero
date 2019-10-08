@@ -1,5 +1,7 @@
 <?php get_header(); ?>
 
+<?php include(get_template_directory() . '/includes/breadcrumb.php');?>
+
 
 <div class="container post-page">
     <?php
